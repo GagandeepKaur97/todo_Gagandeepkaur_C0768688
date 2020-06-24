@@ -93,7 +93,12 @@
                             <outlet property="delegate" destination="Kjh-9f-5QC" id="LdJ-rI-js0"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="sort_date" id="smO-Ko-8YX" userLabel="sort_date"/>
+                        <barButtonItem title="sort_title" id="B8T-wD-ELS"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="gbk-tW-Qvd"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5z-eG-BTg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
