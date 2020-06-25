@@ -135,7 +135,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="descp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-L0-gzi">
-                                <rect key="frame" x="50" y="384" width="314" height="128"/>
+                                <rect key="frame" x="50" y="384" width="314" height="245"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
