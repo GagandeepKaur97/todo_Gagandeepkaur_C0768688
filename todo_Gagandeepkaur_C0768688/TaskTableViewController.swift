@@ -7,9 +7,12 @@
 //
 
 import UIKit
-
-class TaskTableViewController: UITableViewController {
-
+import CoreData
+class TaskTableViewController: UITableViewController,UISearchBarDelegate {
+   
+    var contextEntity : NSManagedObjectContext?
+     var tasks: [NSManagedObject]?
+     
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,16 @@ class TaskTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+              let appdeleagte = UIApplication.shared.delegate as! AppDelegate
+              let context = appdeleagte.persistentContainer.viewContext
+              contextEntity = context
+        
+        
+        loadCoreData()
+        print("load data")
+        
     }
 
     // MARK: - Table view data source
@@ -41,7 +54,58 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
     */
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           
+           
+               let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+                      request.predicate = NSPredicate(format: "title contains[c] %@", searchText)
+                      
+                      do{
+                          let result = try contextEntity?.fetch(request)
+                          tasks = (result as! [NSManagedObject])
+                      }catch{
+                          print(error)
+                      }
+                      tableView.reloadData()
+           if searchText == ""{
+               loadCoreData()
+           }
+           
+           
+          
+       
+       }
+       func loadCoreData(){
+              let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+              
+              do{
+                  let result = try contextEntity?.fetch(request)
+                  tasks = (result as! [NSManagedObject])
+              }catch{
+                  print(error)
+              }
+              tableView.reloadData()
+          }
+          func clearCoreData(){
+              let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+              
+              do{
+                  let result = try contextEntity?.fetch(request)
+                  if result is [NSManagedObject]{
+                      for resultitem in result as! [NSManagedObject]{
+                          contextEntity?.delete(resultitem)
+                      }
+                  }
+              }catch{
+                  print(error)
+              }
+              do{
+                  try contextEntity?.save()
+              }catch{
+                  print(error)
+              }
+          }
+          
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

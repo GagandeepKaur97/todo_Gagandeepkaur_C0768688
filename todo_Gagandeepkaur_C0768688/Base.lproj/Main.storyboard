@@ -32,9 +32,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Kjh-9f-5QC" kind="show" id="tzG-X7-EJ0"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -43,7 +40,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Yd2-UI-Is8">
-                        <barButtonItem key="rightBarButtonItem" title="addf" id="XQi-9H-Kuf"/>
+                        <barButtonItem key="rightBarButtonItem" title="addf" id="XQi-9H-Kuf">
+                            <connections>
+                                <segue destination="Kjh-9f-5QC" kind="show" id="x1m-hq-tNa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8I6-Nk-4md" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
