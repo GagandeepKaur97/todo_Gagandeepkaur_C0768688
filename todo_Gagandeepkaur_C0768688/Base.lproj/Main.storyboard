@@ -72,10 +72,13 @@
                                 </navigationItem>
                             </items>
                         </navigationBar>
-                        <searchBar key="tableFooterView" contentMode="redraw" id="abE-Bs-sU4">
+                        <searchBar key="tableFooterView" contentMode="redraw" text="" id="abE-Bs-sU4">
                             <rect key="frame" x="0.0" y="164" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Vvf-Sl-Rqq" id="0OR-ll-1rU"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="64" id="3Zn-0t-nkB">
@@ -130,26 +133,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaT-0q-hOs">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaT-0q-hOs">
                                 <rect key="frame" x="50" y="195" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Days needed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-KL-JbR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Days needed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-KL-JbR">
                                 <rect key="frame" x="50" y="288" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="descp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-L0-gzi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="descp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-L0-gzi">
                                 <rect key="frame" x="50" y="384" width="314" height="245"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rW-Vo-cru">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rW-Vo-cru">
                                 <rect key="frame" x="50" y="659" width="314" height="72"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="WUF-h1-ivS"/>
+                                </constraints>
                                 <state key="normal" title="save"/>
                                 <connections>
                                     <action selector="addTasks:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fmo-28-VAD"/>
@@ -158,14 +164,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="zYs-KL-JbR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3bJ-bT-u8F"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7rW-Vo-cru" secondAttribute="trailing" constant="50" id="TAL-je-dON"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EaT-0q-hOs" secondAttribute="trailing" constant="50" id="UJc-uz-b2X"/>
-                            <constraint firstItem="ycP-L0-gzi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Yz1-VN-nKj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycP-L0-gzi" secondAttribute="trailing" constant="50" id="ZY6-ls-5PM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zYs-KL-JbR" secondAttribute="trailing" constant="50" id="lnT-oU-8u4"/>
-                            <constraint firstItem="EaT-0q-hOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="pTP-3W-U1j"/>
-                            <constraint firstItem="7rW-Vo-cru" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="y5g-VM-em6"/>
+                            <constraint firstItem="7rW-Vo-cru" firstAttribute="top" secondItem="ycP-L0-gzi" secondAttribute="bottom" constant="30" id="2Ym-ef-joC"/>
+                            <constraint firstItem="zYs-KL-JbR" firstAttribute="top" secondItem="EaT-0q-hOs" secondAttribute="bottom" constant="59" id="83v-65-riN"/>
+                            <constraint firstItem="EaT-0q-hOs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EzA-WG-RDj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7rW-Vo-cru" secondAttribute="bottom" constant="82" id="WBn-q9-f5N"/>
+                            <constraint firstItem="EaT-0q-hOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="WX5-v6-HJz"/>
+                            <constraint firstItem="EaT-0q-hOs" firstAttribute="leading" secondItem="zYs-KL-JbR" secondAttribute="leading" id="WmY-lX-nai"/>
+                            <constraint firstItem="EaT-0q-hOs" firstAttribute="trailing" secondItem="zYs-KL-JbR" secondAttribute="trailing" id="XrQ-eS-YX8"/>
+                            <constraint firstItem="ycP-L0-gzi" firstAttribute="leading" secondItem="7rW-Vo-cru" secondAttribute="leading" id="ZuO-oi-hCl"/>
+                            <constraint firstItem="zYs-KL-JbR" firstAttribute="leading" secondItem="ycP-L0-gzi" secondAttribute="leading" id="ZzR-sO-SWH"/>
+                            <constraint firstItem="zYs-KL-JbR" firstAttribute="trailing" secondItem="ycP-L0-gzi" secondAttribute="trailing" id="f2O-M0-ZaP"/>
+                            <constraint firstItem="ycP-L0-gzi" firstAttribute="trailing" secondItem="7rW-Vo-cru" secondAttribute="trailing" id="kCv-Hl-ZKf"/>
+                            <constraint firstItem="ycP-L0-gzi" firstAttribute="top" secondItem="zYs-KL-JbR" secondAttribute="bottom" constant="62" id="kRd-3f-QYq"/>
+                            <constraint firstItem="EaT-0q-hOs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="107" id="x85-vT-8hn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -200,6 +211,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VBA-d3-jgu"/>
+        <segue reference="9nb-vk-cqf"/>
     </inferredMetricsTieBreakers>
 </document>
