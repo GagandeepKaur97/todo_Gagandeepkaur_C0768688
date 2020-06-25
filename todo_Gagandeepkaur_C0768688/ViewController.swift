@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import CoreData
 class ViewController: UIViewController {
-
+    var titleVC = ""
+       var selectedTask : NSManagedObject?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
