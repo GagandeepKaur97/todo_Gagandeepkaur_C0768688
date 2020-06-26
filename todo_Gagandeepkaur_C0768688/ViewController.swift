@@ -8,9 +8,13 @@
 
 import UIKit
 import CoreData
+
+
 class ViewController: UIViewController {
     
+    @IBOutlet weak var datelbl: UILabel!
     
+    @IBOutlet weak var timelbl: UILabel!
     @IBOutlet weak var titletxt: UITextField!
     
     @IBOutlet weak var daystxt: UITextField!
@@ -24,14 +28,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                      let context = appDelegate.persistentContainer.viewContext
-               let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
-               request.predicate = NSPredicate(format: "title contains %@", titleVC)
-               request.returnsObjectsAsFaults = false
-        // Do any additional setup after loading the view.
-    }
-
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                       let context = appDelegate.persistentContainer.viewContext
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+                request.predicate = NSPredicate(format: "title contains %@", titleVC)
+                request.returnsObjectsAsFaults = false
+                do{
+                    let data = try context.fetch(request)
+                    for object in data as! [NSManagedObject] {
+                        selectedTask = object
+                        titletxt.text = (object.value(forKey: "title") as! String)
+                        daystxt.text = "\(object.value(forKey: "daysNeeded") as? Int ?? 0)"
+                        descfeild.text = (object.value(forKey: "taskDescription") as! String)
+                        let date = (object.value(forKey: "taskStarted") as! Date)
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "EEE, MMM, dd"
+                        let hourFormatter = DateFormatter()
+                        hourFormatter.dateFormat = "h:mm a"
+                        datelbl.text = dateFormatter.string(from: date)
+                        timelbl.text = hourFormatter.string(from: date)
+        //                datelbl.text = "\(object.value(forKey: "taskStarted") as! NSDate)"
+                    }
+                    
+                }catch{
+                    print(error)
+                }
+                let tapgesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+                view.addGestureRecognizer(tapgesture)
+                
+            }
     
     
     
@@ -90,7 +115,8 @@ class ViewController: UIViewController {
                 titletxt.text = ""
                 daystxt.text = ""
                 descfeild.text = ""
-              
+                datelbl.text = ""
+                timelbl.text = ""
                 titletxt.resignFirstResponder()
                 daystxt.resignFirstResponder()
                 descfeild.resignFirstResponder()

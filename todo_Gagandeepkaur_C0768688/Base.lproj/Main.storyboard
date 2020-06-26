@@ -121,6 +121,18 @@
                                     <action selector="addTasks:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fmo-28-VAD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-Qa-VdR">
+                                <rect key="frame" x="40" y="113" width="334" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA4-EO-xXb">
+                                <rect key="frame" x="40" y="163" width="324" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -128,6 +140,7 @@
                             <constraint firstItem="zYs-KL-JbR" firstAttribute="top" secondItem="EaT-0q-hOs" secondAttribute="bottom" constant="59" id="83v-65-riN"/>
                             <constraint firstItem="EaT-0q-hOs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EzA-WG-RDj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7rW-Vo-cru" secondAttribute="bottom" constant="82" id="WBn-q9-f5N"/>
+                            <constraint firstItem="ZA4-EO-xXb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="WE7-v7-vDQ"/>
                             <constraint firstItem="EaT-0q-hOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="WX5-v6-HJz"/>
                             <constraint firstItem="EaT-0q-hOs" firstAttribute="leading" secondItem="zYs-KL-JbR" secondAttribute="leading" id="WmY-lX-nai"/>
                             <constraint firstItem="EaT-0q-hOs" firstAttribute="trailing" secondItem="zYs-KL-JbR" secondAttribute="trailing" id="XrQ-eS-YX8"/>
@@ -136,14 +149,19 @@
                             <constraint firstItem="zYs-KL-JbR" firstAttribute="trailing" secondItem="ycP-L0-gzi" secondAttribute="trailing" id="f2O-M0-ZaP"/>
                             <constraint firstItem="ycP-L0-gzi" firstAttribute="trailing" secondItem="7rW-Vo-cru" secondAttribute="trailing" id="kCv-Hl-ZKf"/>
                             <constraint firstItem="ycP-L0-gzi" firstAttribute="top" secondItem="zYs-KL-JbR" secondAttribute="bottom" constant="62" id="kRd-3f-QYq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dJV-Qa-VdR" secondAttribute="trailing" constant="40" id="mES-Gg-gJy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZA4-EO-xXb" secondAttribute="trailing" constant="40" id="s4z-hY-9Ye"/>
+                            <constraint firstItem="dJV-Qa-VdR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="x5j-r3-hYV"/>
                             <constraint firstItem="EaT-0q-hOs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="107" id="x85-vT-8hn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kww-YE-TFa"/>
                     <connections>
+                        <outlet property="datelbl" destination="dJV-Qa-VdR" id="EOl-JO-ChC"/>
                         <outlet property="daystxt" destination="zYs-KL-JbR" id="FLj-qP-I9Z"/>
                         <outlet property="descfeild" destination="ycP-L0-gzi" id="zmP-HS-LGx"/>
+                        <outlet property="timelbl" destination="ZA4-EO-xXb" id="Ud3-cj-jsm"/>
                         <outlet property="titletxt" destination="EaT-0q-hOs" id="p2m-JA-rTe"/>
                     </connections>
                 </viewController>
