@@ -8,15 +8,17 @@
 
 import UIKit
 import CoreData
-class AddCategory: UITableViewController {
-    
+class AddCategory: UITableViewController, UISearchBarDelegate{
+
+    var context: NSManagedObjectContext?
+    var folder: [NSManagedObject]?
     @IBOutlet weak var serachBar: UISearchBar!
     
-    var currentIndx = -1
-       var count = 1
-       var dataSaved = false
-       var contextEnity : NSManagedObjectContext?
-
+   
+    var NoteArray: [String]?
+    var isSearching = false
+     let mainColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +28,20 @@ class AddCategory: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-              let context = appdelegate.persistentContainer.viewContext
-              contextEnity = context
+       serachBar.delegate = self
               
+               let appDelegate = UIApplication.shared.delegate as! AppDelegate
+              
+               context = appDelegate.persistentContainer.viewContext
+             
+              
+              // Uncomment the following line to preserve selection between presentations
+              // self.clearsSelectionOnViewWillAppear = false
+
+              // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+                   self.navigationItem.rightBarButtonItem = self.editButtonItem
+            
+                     self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.8857288957, green: 0.9869052768, blue: 0.9952554107, alpha: 1)
     }
 
     // MARK: - Table view data source
