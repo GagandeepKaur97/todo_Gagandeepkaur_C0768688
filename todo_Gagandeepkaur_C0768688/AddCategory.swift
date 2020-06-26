@@ -151,8 +151,9 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
     }
     
     
-    @IBAction func addTasks(_ sender: UIButton) {
-        
+    @IBAction func add(_ sender: UIBarButtonItem) {
+    
+    
         let titleString = NSAttributedString(string: "New Folder", attributes: [NSAttributedString.Key.foregroundColor: mainColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
                    
                    let alertController = UIAlertController(title: "", message: "Enter new folder", preferredStyle: .alert)

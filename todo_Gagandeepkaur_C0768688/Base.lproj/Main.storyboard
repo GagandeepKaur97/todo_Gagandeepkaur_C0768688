@@ -52,14 +52,11 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="At4-qC-hQG">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c7J-fV-mhK">
-                            <rect key="frame" x="132" y="11" width="150" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="pencil.and.ellipsis.rectangle" catalog="system"/>
+                        <barButtonItem key="rightBarButtonItem" title="ADD" id="W53-cq-PpJ">
                             <connections>
-                                <action selector="addTasks:" destination="D0A-jv-YTw" eventType="touchUpInside" id="CCF-2O-IeK"/>
+                                <action selector="add:" destination="D0A-jv-YTw" id="L0h-dy-LsR"/>
                             </connections>
-                        </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -251,9 +248,6 @@
             <point key="canvasLocation" x="211.59420289855075" y="-28.125"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VBA-d3-jgu"/>
     </inferredMetricsTieBreakers>
