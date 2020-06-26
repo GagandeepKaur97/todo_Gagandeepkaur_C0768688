@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 class AddCategory: UITableViewController {
     
+    @IBOutlet weak var serachBar: UISearchBar!
     
     var currentIndx = -1
        var count = 1
