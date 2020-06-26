@@ -24,6 +24,11 @@ class AddCategory: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+              let context = appdelegate.persistentContainer.viewContext
+              contextEnity = context
+              
     }
 
     // MARK: - Table view data source
