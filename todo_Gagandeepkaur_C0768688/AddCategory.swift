@@ -8,10 +8,13 @@
 
 import UIKit
 import CoreData
+
+
 class AddCategory: UITableViewController, UISearchBarDelegate{
 
     var context: NSManagedObjectContext?
     var folder: [NSManagedObject]?
+    
     @IBOutlet weak var serachBar: UISearchBar!
     
    

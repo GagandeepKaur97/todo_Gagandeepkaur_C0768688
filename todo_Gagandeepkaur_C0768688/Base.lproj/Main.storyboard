@@ -47,10 +47,13 @@
                             <outlet property="delegate" destination="D0A-jv-YTw" id="69A-1j-96c"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="STD-RI-KK7"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="At4-qC-hQG">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c7J-fV-mhK">
-                            <rect key="frame" x="192.5" y="11" width="29" height="22"/>
+                            <rect key="frame" x="132" y="11" width="150" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="pencil.and.ellipsis.rectangle" catalog="system"/>
                             <connections>
@@ -58,6 +61,7 @@
                             </connections>
                         </button>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="serachBar" destination="Esj-bu-NN6" id="zWL-Ee-Rcw"/>
                     </connections>

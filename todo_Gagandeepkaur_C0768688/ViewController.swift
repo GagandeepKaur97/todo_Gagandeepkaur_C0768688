@@ -12,20 +12,19 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var datelbl: UILabel!
     
+    
+    @IBOutlet weak var datelbl: UILabel!
     @IBOutlet weak var timelbl: UILabel!
     @IBOutlet weak var titletxt: UITextField!
-    
     @IBOutlet weak var daystxt: UITextField!
-    
     @IBOutlet weak var descfeild: UITextView!
     
        var titleVC = ""
        var selectedTask : NSManagedObject?
     
     
-    override func viewDidLoad() {
+       override func viewDidLoad() {
         super.viewDidLoad()
         
        let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -118,7 +117,7 @@ class ViewController: UIViewController {
                 datelbl.text = ""
                 timelbl.text = ""
                 titletxt.resignFirstResponder()
-                daystxt.resignFirstResponder()
+                 daystxt.resignFirstResponder()
                 descfeild.resignFirstResponder()
             }
             
