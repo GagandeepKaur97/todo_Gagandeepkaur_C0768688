@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var descfeild: UITextView!
     
-    var titleVC = ""
+       var titleVC = ""
        var selectedTask : NSManagedObject?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
