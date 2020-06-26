@@ -210,12 +210,8 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
                    self.present(alertController, animated: false, completion: nil)
                }
                
-           
-           
     
-    
-    
-      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
              serachBar.resignFirstResponder()
                serachBar.text = ""
                 isSearching = false
