@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 class AddCategory: UITableViewController {
+    
+    
+    var currentIndx = -1
+       var count = 1
+       var dataSaved = false
+       var contextEnity : NSManagedObjectContext?
 
     override func viewDidLoad() {
         super.viewDidLoad()
