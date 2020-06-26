@@ -13,7 +13,7 @@ import CoreData
 
 class TaskTableViewController: UITableViewController,UISearchBarDelegate {
     
-    
+var categoryName: String?
     var contextEntity : NSManagedObjectContext?
     var tasks: [NSManagedObject]?
     
