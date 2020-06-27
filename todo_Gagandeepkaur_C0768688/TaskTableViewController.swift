@@ -61,6 +61,7 @@ var categoryName: String?
         if addedDays >= neededDays{
             cell?.backgroundColor = .green
             cell?.detailTextLabel?.text = "Task completed"
+            // change category to "archive"
         }
         if addedDays > neededDays{
             cell?.backgroundColor = .red

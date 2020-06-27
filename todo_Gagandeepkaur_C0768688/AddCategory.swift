@@ -19,8 +19,8 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
     
    
     var NoteArray: [String]?
-    var isSearching = false
-     let mainColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+    var searching = false
+     let mainColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +42,10 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
               // self.clearsSelectionOnViewWillAppear = false
 
               // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-                   self.navigationItem.rightBarButtonItem = self.editButtonItem
-            
-                     self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.8857288957, green: 0.9869052768, blue: 0.9952554107, alpha: 1)
-        
+//                   self.navigationItem.rightBarButtonItem = self.editButtonItem
+//            
+//                     self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        
              loadData()
     }
 
@@ -58,31 +58,34 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-         return !isSearching ? (folder?.count ?? 0) : (NoteArray?.count ?? 0)
+         return !searching ? (folder?.count ?? 0) : (NoteArray?.count ?? 0)
     }
+    
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           if let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell"){
+                     
+                     cell.textLabel?.text = !searching ? folder![indexPath.row].value(forKey: "notename") as! String : NoteArray![indexPath.row]
+                     
+                     //number of notes inside a folder
+                     let count = !searching ? getNotesCountInFolder(categoryName: folder![indexPath.row].value(forKey: "notename") as! String) : getNotesCountInFolder(categoryName: NoteArray![indexPath.row])
+                     cell.detailTextLabel?.text = "\(count)"
+                     
+                     return cell
+                 }
+                 
+                 return UITableViewCell()
+             }
+       override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+           // Return false if you do not want the specified item to be editable.
+           return true
+       }
+    
+    
+    
+    
+    
 
-    
-    
-    
-    
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+ 
 
     /*
     // Override to support editing the table view.
@@ -135,7 +138,7 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
                                                   NoteArray?.append(cat)
                                               }
                                          }
-                                         isSearching = true
+                                         searching = true
                                           tableView.reloadData()
                    }catch{
                        print(error)
@@ -220,7 +223,7 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
              serachBar.resignFirstResponder()
                serachBar.text = ""
-                isSearching = false
+                searching = false
                 loadData()
                 tableView.reloadData()
             }
