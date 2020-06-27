@@ -239,37 +239,38 @@ var categoryName: String?
         }
     }
     
-    @IBAction func sort_date(_ sender: UIBarButtonItem) {
+    @IBAction func sort_date(_ sender: UISegmentedControl) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
-               request.sortDescriptors = [NSSortDescriptor(key: "taskStarted", ascending: false)]
-               do{
-                   
-                   let result = try contextEntity?.fetch(request)
-                   tasks = (result as! [NSManagedObject])
+                      request.sortDescriptors = [NSSortDescriptor(key: "taskStarted", ascending: false)]
+                      do{
+                          
+                          let result = try contextEntity?.fetch(request)
+                          tasks = (result as! [NSManagedObject])
+                      
+                      }catch{
+                          print(error)
+                      }
+                      tableView.reloadData()
                
-               }catch{
-                   print(error)
-               }
-               tableView.reloadData()
-        
-        
     }
     
-    @IBAction func sort_title(_ sender: UIBarButtonItem) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
-               request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-               do{
-                   
-                   let result = try contextEntity?.fetch(request)
-                   tasks = (result as! [NSManagedObject])
-               
-               }catch{
-                   print(error)
-               }
-               tableView.reloadData()
-               
-           }
+    
+    @IBAction func sort_title(_ sender: UISegmentedControl) {
         
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+                      request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+                      do{
+                          
+                          let result = try contextEntity?.fetch(request)
+                          tasks = (result as! [NSManagedObject])
+                      
+                      }catch{
+                          print(error)
+                      }
+                      tableView.reloadData()
+                      
+    }
+    
         
     }
 
