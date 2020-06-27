@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE74994F24A66BA500A08465 /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74994E24A66BA500A08465 /* AddCategory.swift */; };
+		CE74995A24A7F4F200A08465 /* MoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74995924A7F4F200A08465 /* MoveViewController.swift */; };
 		CE79423124A3DEC00013FDB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79423024A3DEC00013FDB8 /* AppDelegate.swift */; };
 		CE79423324A3DEC00013FDB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79423224A3DEC00013FDB8 /* SceneDelegate.swift */; };
 		CE79423524A3DEC00013FDB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79423424A3DEC00013FDB8 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		CE74994E24A66BA500A08465 /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
+		CE74995924A7F4F200A08465 /* MoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveViewController.swift; sourceTree = "<group>"; };
 		CE79422D24A3DEC00013FDB8 /* todo_Gagandeepkaur_C0768688.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo_Gagandeepkaur_C0768688.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE79423024A3DEC00013FDB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE79423224A3DEC00013FDB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				CE79423224A3DEC00013FDB8 /* SceneDelegate.swift */,
 				CE79423424A3DEC00013FDB8 /* ViewController.swift */,
 				CE79423624A3DEC00013FDB8 /* Main.storyboard */,
+				CE74995924A7F4F200A08465 /* MoveViewController.swift */,
 				CE74994E24A66BA500A08465 /* AddCategory.swift */,
 				CE79424724A3E23B0013FDB8 /* TaskTableViewController.swift */,
 				CE79423C24A3DEC30013FDB8 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				CE79423524A3DEC00013FDB8 /* ViewController.swift in Sources */,
 				CE79423B24A3DEC00013FDB8 /* todo_Gagandeepkaur_C0768688.xcdatamodeld in Sources */,
 				CE79423124A3DEC00013FDB8 /* AppDelegate.swift in Sources */,
+				CE74995A24A7F4F200A08465 /* MoveViewController.swift in Sources */,
 				CE79423324A3DEC00013FDB8 /* SceneDelegate.swift in Sources */,
 				CE74994F24A66BA500A08465 /* AddCategory.swift in Sources */,
 			);
