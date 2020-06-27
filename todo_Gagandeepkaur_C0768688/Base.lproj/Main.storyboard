@@ -78,15 +78,6 @@
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="lT9-nQ-vf5">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem id="oI1-gr-tfY">
-                                    <barButtonItem key="rightBarButtonItem" title="add" id="W91-LG-xSn">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="9nb-vk-cqf"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
                         </navigationBar>
                         <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="OGK-0k-C2j">
                             <rect key="frame" x="0.0" y="164" width="414" height="32"/>
@@ -143,7 +134,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Notes" id="gbk-tW-Qvd"/>
+                    <navigationItem key="navigationItem" title="Notes" id="gbk-tW-Qvd">
+                        <barButtonItem key="rightBarButtonItem" title="add" id="W91-LG-xSn">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="9nb-vk-cqf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5z-eG-BTg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
