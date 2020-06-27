@@ -131,17 +131,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="sort_date" id="smO-Ko-8YX" userLabel="sort_date">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="EJk-HN-rkw"/>
+                        <barButtonItem image="square.and.arrow.up.on.square.fill" catalog="system" id="b0N-g2-xnH">
+                            <color key="tintColor" red="0.077255656529999994" green="0.75324208719999997" blue="0.61853721689999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="sort_date:" destination="Kjh-9f-5QC" id="m3g-fI-ubH"/>
+                                <segue destination="xQ4-XO-n0R" kind="show" id="6ca-9l-Iku"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="sort_title" id="B8T-wD-ELS">
-                            <connections>
-                                <action selector="sort_title:" destination="Kjh-9f-5QC" id="dlG-cL-tqG"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Item" id="swa-Br-jnc"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="gbk-tW-Qvd"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -176,6 +172,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" id="Whh-aV-1et"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gi-Wo-TUK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -300,6 +297,9 @@
             <point key="canvasLocation" x="211.59420289855075" y="-28.125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="58" height="64"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VBA-d3-jgu"/>
     </inferredMetricsTieBreakers>
