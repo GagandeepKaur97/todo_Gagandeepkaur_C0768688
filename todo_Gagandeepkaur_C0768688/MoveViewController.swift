@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoveViewController: UIViewController {
+class MoveViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,4 +27,9 @@ class MoveViewController: UIViewController {
     }
     */
 
+    
+    
+    @IBAction func cancelbtn(_ sender: UIBarButtonItem) {
+    }
+    
 }
