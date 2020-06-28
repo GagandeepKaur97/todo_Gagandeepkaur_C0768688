@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ArchivedNotes" representedClassName="ArchivedNotes" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="ndate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="ndays" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
         <attribute name="notename" optional="YES" attributeType="String"/>
     </entity>
@@ -19,8 +25,9 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="TasksEntity" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="Categories" positionX="-63" positionY="18" width="128" height="58"/>
         <element name="Newnotes" positionX="-54" positionY="27" width="128" height="133"/>
+        <element name="TasksEntity" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="ArchivedNotes" positionX="-54" positionY="54" width="128" height="103"/>
     </elements>
 </model>
