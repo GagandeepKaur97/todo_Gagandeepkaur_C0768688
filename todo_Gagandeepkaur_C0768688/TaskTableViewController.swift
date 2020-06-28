@@ -117,6 +117,8 @@ var categoryName: String?
         
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             print("Task cpmpleted////////////////")
+            
+            tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "Task completed"
         }
         let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
         
