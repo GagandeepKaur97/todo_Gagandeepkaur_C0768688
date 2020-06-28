@@ -58,14 +58,14 @@ var categoryName: String?
         cell?.backgroundColor = .white
         let addedDays = tasks![indexPath.row].value(forKey: "daysAdded") as! Int
         let neededDays = tasks![indexPath.row].value(forKey: "daysNeeded") as! Int
-        if addedDays >= neededDays{
+        if addedDays >= 1 || addedDays >= neededDays{
             cell?.backgroundColor = .green
-            cell?.detailTextLabel?.text = "Task completed"
+//            cell?.detailTextLabel?.text = "Task completed"
             // change category to "archive"
         }
         if addedDays > neededDays{
             cell?.backgroundColor = .red
-            cell?.detailTextLabel?.text = "task is overdue"
+//            cell?.detailTextLabel?.text = "task is overdue"
         }
             return cell!
         
@@ -111,6 +111,20 @@ var categoryName: String?
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Task Completed", message: "Are you sure you want to mark as completed!", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            print("Task cpmpleted////////////////")
+        }
+        let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 
     
     // MARK: - Navigation
