@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Category-->
+        <!--Category-->
         <scene sceneID="9oc-ll-PhJ">
             <objects>
                 <tableViewController id="D0A-jv-YTw" customClass="AddCategory" customModule="todo_Gagandeepkaur_C0768688" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,9 +50,8 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="STD-RI-KK7"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="At4-qC-hQG">
-                        <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="ADD" id="W53-cq-PpJ">
+                    <navigationItem key="navigationItem" title="Category" id="At4-qC-hQG">
+                        <barButtonItem key="rightBarButtonItem" title="ADD" image="plus.rectangle.fill" catalog="system" id="W53-cq-PpJ">
                             <connections>
                                 <action selector="add:" destination="D0A-jv-YTw" id="L0h-dy-LsR"/>
                             </connections>
@@ -110,16 +109,17 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="EJk-HN-rkw"/>
-                        <barButtonItem image="square.and.arrow.up.on.square.fill" catalog="system" id="b0N-g2-xnH">
-                            <color key="tintColor" red="0.077255656529999994" green="0.75324208719999997" blue="0.61853721689999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zWW-Q4-gVO"/>
+                        <barButtonItem title="Item" image="archivebox.fill" catalog="system" id="v4N-fn-MPy">
                             <connections>
-                                <segue destination="xQ4-XO-n0R" kind="show" id="6ca-9l-Iku"/>
+                                <segue destination="4PS-8i-rtE" kind="popoverPresentation" popoverAnchorBarButtonItem="v4N-fn-MPy" id="03w-CT-fBj">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Notes" id="gbk-tW-Qvd">
-                        <barButtonItem key="rightBarButtonItem" title="add" id="W91-LG-xSn">
+                        <barButtonItem key="rightBarButtonItem" title="add" image="plus.rectangle.fill.on.rectangle.fill" catalog="system" id="W91-LG-xSn">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="9nb-vk-cqf"/>
                             </connections>
@@ -131,41 +131,43 @@
             </objects>
             <point key="canvasLocation" x="2071.0144927536235" y="-33.482142857142854"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Rct-f2-eta">
+        <!--Achived Notes-->
+        <scene sceneID="YMV-yO-Vf9">
             <objects>
-                <viewController id="xQ4-XO-n0R" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="X8X-qE-SEj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <tableViewController id="4PS-8i-rtE" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="p6L-HT-aSq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oaq-K1-Go4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="eUz-bj-0Cw"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="wwo-7z-zsJ"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="cancel" id="1ht-pu-XCl">
-                            <connections>
-                                <action selector="cancelbtn:" destination="g7l-bl-qwi" id="DTe-G3-rkS"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="Whh-aV-1et"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4gi-Wo-TUK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="g7l-bl-qwi" userLabel="Exit" sceneMemberID="exit"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="auL-gM-rdK">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eub-hd-Cc9">
+                                <rect key="frame" x="0.0" y="95" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eub-hd-Cc9" id="Nkk-Oo-kgU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4PS-8i-rtE" id="qEM-d7-ot4"/>
+                            <outlet property="delegate" destination="4PS-8i-rtE" id="ISi-Tf-cOG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Achived Notes" id="g5g-AA-V7Y"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6D-MV-QNC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1923" y="646"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="678.34821428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Note Detail-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="todo_Gagandeepkaur_C0768688" customModuleProvider="target" sceneMemberID="viewController">
@@ -250,7 +252,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kww-YE-TFa"/>
+                    <navigationItem key="navigationItem" title="Note Detail" id="Kww-YE-TFa"/>
                     <connections>
                         <outlet property="datelbl" destination="dJV-Qa-VdR" id="EOl-JO-ChC"/>
                         <outlet property="daystxt" destination="zYs-KL-JbR" id="FLj-qP-I9Z"/>
@@ -266,13 +268,18 @@
         <!--Navigation Controller-->
         <scene sceneID="2zG-0E-xOH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v8B-rR-uyf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="v8B-rR-uyf" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VxV-le-utB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Am2-IS-3C1">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="D0A-jv-YTw" kind="relationship" relationship="rootViewController" id="AJb-WU-qph"/>
                     </connections>
@@ -283,9 +290,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="58" height="64"/>
+        <image name="archivebox.fill" catalog="system" width="64" height="52"/>
+        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="plus.rectangle.fill.on.rectangle.fill" catalog="system" width="64" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VBA-d3-jgu"/>
+        <segue reference="9nb-vk-cqf"/>
     </inferredMetricsTieBreakers>
 </document>
