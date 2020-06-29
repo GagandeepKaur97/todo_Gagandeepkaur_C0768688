@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 
 class ViewController: UIViewController {
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
     
        override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().delegate = self
         
        let appDelegate = UIApplication.shared.delegate as! AppDelegate
                        let context = appDelegate.persistentContainer.viewContext
@@ -130,9 +133,16 @@ class ViewController: UIViewController {
             daystxt.resignFirstResponder()
             descfeild.resignFirstResponder()
         }
-        
-       
-      
+   
         
     }
+
+extension ViewController: UNUserNotificationCenterDelegate{
+   func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                         willPresent notification: UNNotification,
+                                         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+                 completionHandler([.alert, .sound])
+
+             }
+}
 

@@ -49,23 +49,8 @@ class ArchivedNoteTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell")
                     cell?.textLabel?.text = tasks![indexPath.row].value(forKey: "title") as? String
         cell?.detailTextLabel?.text = "Task Complted"
-        
-    
-        
-        
         cell?.backgroundColor = .orange
         
-//                let addedDays = tasks![indexPath.row].value(forKey: "daysAdded") as! Int
-//                let neededDays = tasks![indexPath.row].value(forKey: "daysNeeded") as! Int
-//                if addedDays >= 1 || addedDays >= neededDays{
-//                    cell?.backgroundColor = .green
-//        //            cell?.detailTextLabel?.text = "Task completed"
-//                    // change category to "archive"
-//                }
-//                if addedDays > neededDays{
-//                    cell?.backgroundColor = .red
-//        //            cell?.detailTextLabel?.text = "task is overdue"
-//                }
                     return cell!
                 
     }
