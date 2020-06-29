@@ -16,6 +16,7 @@ class TaskTableViewController: UITableViewController,UISearchBarDelegate {
 var categoryName: String?
     var contextEntity : NSManagedObjectContext?
     var tasks: [NSManagedObject]?
+    var archiveDelegate: ArchivedNoteTVC?
     
 
     override func viewDidLoad() {
@@ -119,6 +120,35 @@ var categoryName: String?
             print("Task cpmpleted////////////////")
             
             tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "Task completed"
+            let task : NSManagedObject = self.tasks![indexPath.row]
+            self.archiveDelegate?.tasks?.append(task)
+            let title = self.tasks![indexPath.row].value(forKey: "title") as! String
+                   let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+                   request.predicate = NSPredicate(format: "title contains %@", title)
+                   request.returnsObjectsAsFaults = false
+                   
+                       do{
+                           let data = try self.contextEntity?.fetch(request)
+                                       for ob in data as! [NSManagedObject]{
+                                           self.contextEntity?.delete(ob)
+                                           self.tasks?.remove(at: indexPath.row)
+                                           tableView.deleteRows(at: [indexPath], with: .fade)
+                       //                    print("item deleted")
+                                       }
+                                   }catch{
+                                       print("item not deleted")
+                                   }
+                                   
+                                   do {
+                                       try self.contextEntity?.save()
+                                       self.loadCoreData()
+                                   }catch{
+                                       print("not saved")
+                                   }
+            
+            
+                   
+            
         }
         let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
         
