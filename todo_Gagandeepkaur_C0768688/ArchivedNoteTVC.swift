@@ -23,6 +23,8 @@ class ArchivedNoteTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        print("\(tasks?.count)")
+        
         let appdeleagte = UIApplication.shared.delegate as! AppDelegate
             let context = appdeleagte.persistentContainer.viewContext
             contextEntity = context
@@ -42,15 +44,32 @@ class ArchivedNoteTVC: UITableViewController {
         return tasks?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell")
+                    cell?.textLabel?.text = tasks![indexPath.row].value(forKey: "title") as? String
+        cell?.detailTextLabel?.text = "Task Complted"
+        
+    
+        
+        
+        cell?.backgroundColor = .orange
+        
+//                let addedDays = tasks![indexPath.row].value(forKey: "daysAdded") as! Int
+//                let neededDays = tasks![indexPath.row].value(forKey: "daysNeeded") as! Int
+//                if addedDays >= 1 || addedDays >= neededDays{
+//                    cell?.backgroundColor = .green
+//        //            cell?.detailTextLabel?.text = "Task completed"
+//                    // change category to "archive"
+//                }
+//                if addedDays > neededDays{
+//                    cell?.backgroundColor = .red
+//        //            cell?.detailTextLabel?.text = "task is overdue"
+//                }
+                    return cell!
+                
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -96,6 +115,10 @@ class ArchivedNoteTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     func loadCoreData(){
            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ArchivedNotes")

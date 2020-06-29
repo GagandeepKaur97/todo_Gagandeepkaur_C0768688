@@ -120,9 +120,30 @@ var categoryName: String?
             print("Task cpmpleted////////////////")
             
             tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "Task completed"
-            let task : NSManagedObject = self.tasks![indexPath.row]
-            self.archiveDelegate?.tasks?.append(task)
+//            let task : NSManagedObject = self.tasks![indexPath.row]
+//            self.archiveDelegate?.tasks?.append(task)
+            
             let title = self.tasks![indexPath.row].value(forKey: "title") as! String
+            let desc = self.tasks![indexPath.row].value(forKey: "taskDescription") as! String
+            let days = self.tasks![indexPath.row].value(forKey: "daysNeeded") as! Int
+            let date = self.tasks![indexPath.row].value(forKey: "taskStarted") as! Date
+            
+            
+            let taskentity = NSEntityDescription.insertNewObject(forEntityName: "ArchivedNotes", into: self.contextEntity!)
+                                      
+                                      taskentity.setValue(title, forKey: "title")
+                                      taskentity.setValue(desc, forKey: "desc")
+                                      taskentity.setValue(date, forKey: "ndate")
+                                      taskentity.setValue(days, forKey: "ndays")
+            
+                               
+                                      
+                                      do{
+                                        try self.contextEntity?.save()
+                                      }catch{
+                                          print(error)
+                                      }
+            
                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
                    request.predicate = NSPredicate(format: "title contains %@", title)
                    request.returnsObjectsAsFaults = false
