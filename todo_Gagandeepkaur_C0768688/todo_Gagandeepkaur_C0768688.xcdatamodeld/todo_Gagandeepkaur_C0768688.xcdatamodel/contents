@@ -18,6 +18,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="TasksEntity" representedClassName="TasksEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="daysAdded" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="daysNeeded" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="taskDescription" optional="YES" attributeType="String"/>
@@ -25,9 +26,9 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="ArchivedNotes" positionX="-54" positionY="54" width="128" height="103"/>
         <element name="Categories" positionX="-63" positionY="18" width="128" height="58"/>
         <element name="Newnotes" positionX="-54" positionY="27" width="128" height="133"/>
-        <element name="TasksEntity" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="ArchivedNotes" positionX="-54" positionY="54" width="128" height="103"/>
+        <element name="TasksEntity" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

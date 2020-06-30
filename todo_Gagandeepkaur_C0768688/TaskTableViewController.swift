@@ -13,10 +13,11 @@ import CoreData
 
 class TaskTableViewController: UITableViewController,UISearchBarDelegate {
     
-var categoryName: String?
+    var categoryName: String?
     var contextEntity : NSManagedObjectContext?
     var tasks: [NSManagedObject]?
     var archiveDelegate: ArchivedNoteTVC?
+    
     
 
     override func viewDidLoad() {
@@ -190,6 +191,13 @@ var categoryName: String?
             if let cell = sender as? UITableViewCell{
                 let taskTitle = tasks![tableView.indexPath(for: cell)!.row].value(forKey: "title") as! String
                 destination.titleVC = taskTitle
+                destination.categoryName = categoryName!
+                
+                
+            }
+            
+            if let btn = sender as? UIBarButtonItem{
+                destination.categoryName = categoryName!
             }
         }
     }
@@ -199,6 +207,7 @@ var categoryName: String?
         
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
                    request.predicate = NSPredicate(format: "title contains[c] %@", searchText)
+        request.returnsObjectsAsFaults = false
                    
                    do{
                        let result = try contextEntity?.fetch(request)
@@ -277,6 +286,9 @@ var categoryName: String?
     
     func loadCoreData(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TasksEntity")
+        request.predicate = NSPredicate(format: "category = %@", categoryName!)
+        request.returnsObjectsAsFaults = false
+        
         
         do{
             let result = try contextEntity?.fetch(request)

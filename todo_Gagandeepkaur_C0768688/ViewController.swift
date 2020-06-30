@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var categorytxt: UITextField!
     @IBOutlet weak var datelbl: UILabel!
     @IBOutlet weak var timelbl: UILabel!
     @IBOutlet weak var titletxt: UITextField!
@@ -23,11 +24,14 @@ class ViewController: UIViewController {
     
        var titleVC = ""
        var selectedTask : NSManagedObject?
+        var categoryName: String?
+    
     
     
        override func viewDidLoad() {
         super.viewDidLoad()
         
+        categorytxt.text = categoryName!
         UNUserNotificationCenter.current().delegate = self
         
        let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -93,6 +97,8 @@ class ViewController: UIViewController {
                            taskentity.setValue(0, forKey: "daysAdded")
                            taskentity.setValue(desc, forKey: "taskDescription")
                            taskentity.setValue(Date(), forKey: "taskStarted")
+                    taskentity.setValue(categorytxt.text!, forKey: "category")
+                    
                     
                            
                            do{
@@ -106,6 +112,46 @@ class ViewController: UIViewController {
                     selectedTask?.setValue(title, forKey: "title")
                     selectedTask?.setValue(daysneeded, forKey: "daysNeeded")
                     selectedTask?.setValue(desc, forKey: "taskDescription")
+                    selectedTask?.setValue(categorytxt.text!, forKey: "category")
+                    
+                    
+                    // check - if changed category already exist
+                    
+                    var catagoryPresent = false
+                           let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Categories")
+                           request.returnsObjectsAsFaults = false
+                           
+                           // we find our data
+                           do{
+                            let results = try context.fetch(request) as! [NSManagedObject]
+                               
+                               for r in results{
+                                   
+                                   if categorytxt.text! == (r.value(forKey: "notename") as! String) {
+                                       catagoryPresent = true;
+                                       break
+                                       
+                                   }
+                                   
+                               }
+                           } catch{
+                               print("Error2...\(error)")
+                           }
+                           
+                           
+                           if !catagoryPresent{
+                               
+                            let newFolder = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: context)
+                               newFolder.setValue(categorytxt.text!, forKey: "notename")
+                               
+                           }
+                    
+                    // cat exist
+                    
+                    // cat not present - add
+                    
+                    
+                    
                     
                     do{
                         try context.save()

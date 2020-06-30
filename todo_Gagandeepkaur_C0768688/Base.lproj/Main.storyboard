@@ -21,14 +21,14 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" textLabel="gji-xs-2SF" style="IBUITableViewCellStyleDefault" id="QPV-zi-hWO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="folderCell" textLabel="jB4-HO-6C1" style="IBUITableViewCellStyleDefault" id="XvA-Ms-Zxz">
                                 <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QPV-zi-hWO" id="jKe-u5-rcJ">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XvA-Ms-Zxz" id="9pr-bU-iej">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gji-xs-2SF">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jB4-HO-6C1">
                                             <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -38,10 +38,11 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Kjh-9f-5QC" kind="show" id="JZJ-oZ-4f2"/>
+                                    <segue destination="Kjh-9f-5QC" kind="show" id="81T-hG-Mex"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="D0A-jv-YTw" id="GSU-Zx-M2J"/>
                             <outlet property="delegate" destination="D0A-jv-YTw" id="69A-1j-96c"/>
@@ -270,6 +271,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Note Detail" id="Kww-YE-TFa"/>
                     <connections>
+                        <outlet property="categorytxt" destination="Jb4-y5-ga1" id="zKL-lQ-QRS"/>
                         <outlet property="datelbl" destination="dJV-Qa-VdR" id="EOl-JO-ChC"/>
                         <outlet property="daystxt" destination="zYs-KL-JbR" id="FLj-qP-I9Z"/>
                         <outlet property="descfeild" destination="ycP-L0-gzi" id="zmP-HS-LGx"/>

@@ -13,7 +13,7 @@ import CoreData
 class AddCategory: UITableViewController, UISearchBarDelegate{
 
     var context: NSManagedObjectContext?
-    var folder: [NSManagedObject]?
+    static var folder: [NSManagedObject]?
     
     @IBOutlet weak var serachBar: UISearchBar!
     
@@ -48,6 +48,10 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
 //        
              loadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
 
     // MARK: - Table view data source
 
@@ -58,16 +62,17 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-         return !searching ? (folder?.count ?? 0) : (NoteArray?.count ?? 0)
+        return !searching ? (AddCategory.folder?.count ?? 0) : (NoteArray?.count ?? 0)
     }
     
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
            if let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell"){
                      
-                     cell.textLabel?.text = !searching ? folder![indexPath.row].value(forKey: "notename") as! String : NoteArray![indexPath.row]
+            cell.textLabel?.text = !searching ? AddCategory.folder![indexPath.row].value(forKey: "notename") as! String : NoteArray![indexPath.row]
                      
                      //number of notes inside a folder
-                     let count = !searching ? getNotesCountInFolder(categoryName: folder![indexPath.row].value(forKey: "notename") as! String) : getNotesCountInFolder(categoryName: NoteArray![indexPath.row])
+            let count = !searching ? getNotesCountInFolder(categoryName: AddCategory.folder![indexPath.row].value(forKey: "notename") as! String) : getNotesCountInFolder(categoryName: NoteArray![indexPath.row])
                      cell.detailTextLabel?.text = "\(count)"
                      
                      return cell
@@ -254,7 +259,7 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
                     let results = try context?.fetch(request)
                     
                     if results is [NSManagedObject]{
-                        folder = results as! [NSManagedObject]
+                        AddCategory.folder = results as! [NSManagedObject]
                         tableView.reloadData()
                     }
                 } catch{
@@ -352,28 +357,49 @@ class AddCategory: UITableViewController, UISearchBarDelegate{
         }
         */
 
-        /*
+        
         // MARK: - Navigation
 
         // In a storyboard-based application, you will often want to do a little preparation before navigation
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             // Get the new view controller using segue.destination.
-            // Pass the selected object to the new view controller.
+            // Pass the selected object to the new view controller.'
+            
+            if let dest = segue.destination as? TaskTableViewController{
+               
+                
+                
+                if let cell1 = sender as? UITableViewCell{
+                    print(cell1.textLabel!.text!)
+                    dest.categoryName = cell1.textLabel!.text!
+                }
+            }
+            
         }
-        */
+        
 
 
 
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             // Get the new view controller using segue.destination.
             // Pass the selected object to the new view controller.
             
             if let destination = segue.destination as? TaskTableViewController{
-                destination.categoryName = (sender as! UITableViewCell).textLabel?.text
+                
+                if let cell1 = sender as? UITableViewCell{
+                    
+                    destination.categoryName! = cell1.textLabel!.text!
+                   
+                    
+                    
+                }
+                
+                
+                print(destination.categoryName!)
                 
             }
             
-        }
+        }*/
         
         override func viewWillAppear(_ animated: Bool) {
             loadData()
