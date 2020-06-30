@@ -10,14 +10,15 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
-class TaskTableViewController: UITableViewController,UISearchBarDelegate {
+class TaskTableViewController: UITableViewController,UISearchBarDelegate, UNUserNotificationCenterDelegate {
     
     var categoryName: String?
     var contextEntity : NSManagedObjectContext?
     var tasks: [NSManagedObject]?
     var archiveDelegate: ArchivedNoteTVC?
-    
+     let userNotificationCenter = UNUserNotificationCenter.current()
     
 
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class TaskTableViewController: UITableViewController,UISearchBarDelegate {
     
         loadCoreData()
         print("load data")
+        self.userNotificationCenter.delegate = self
         
     }
 
@@ -68,6 +70,34 @@ class TaskTableViewController: UITableViewController,UISearchBarDelegate {
         if addedDays > neededDays{
             cell?.backgroundColor = .red
 //            cell?.detailTextLabel?.text = "task is overdue"
+        }
+        if neededDays-addedDays == 1{
+                    let notificationContent = UNMutableNotificationContent()
+            notificationContent.title = "\(String(describing: tasks![indexPath.row].value(forKey: "title")!))"
+         notificationContent.body = "one day left for this task to complete"
+         notificationContent.badge = NSNumber(value: 3)
+         
+         if let url = Bundle.main.url(forResource: "dune",
+                                     withExtension: "png") {
+             if let attachment = try? UNNotificationAttachment(identifier: "dune",
+                                                             url: url,
+                                                             options: nil) {
+                 notificationContent.attachments = [attachment]
+             }
+         }
+         
+         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                         repeats: false)
+         let request = UNNotificationRequest(identifier: "testNotification",
+                                             content: notificationContent,
+                                             trigger: trigger)
+         
+         userNotificationCenter.add(request) { (error) in
+             if let error = error {
+                 print("Notification Error: ", error)
+             }
+         }
+           
         }
             return cell!
         
